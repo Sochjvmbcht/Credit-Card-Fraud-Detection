@@ -1,61 +1,69 @@
-##Credit Card Fraud Detection
+# **Credit Card Fraud Detection**
 
-1. Read Data
-In this section, the data is loaded into your environment. It typically consists of transactional records where some transactions are fraudulent. The dataset might include features like time, amount, and anonymized customer behaviors. This step helps in setting up the data for further analysis and modeling.
+This project aims to build machine learning models to detect fraudulent credit card transactions. The dataset is highly imbalanced, with fraudulent transactions making up a very small fraction of the total. Various models are implemented and evaluated to achieve the best accuracy in detecting fraud.
 
-2. Explore Data
-Data exploration involves understanding the structure and distribution of the dataset. This includes:
+## **Dataset**
 
-Checking for missing values.
-Analyzing the class distribution (e.g., fraudulent vs. non-fraudulent transactions).
-Reviewing summary statistics like the mean, standard deviation, and correlation between variables.
-Visualizing the data to detect any patterns or anomalies that could inform your modeling decisions.
-3. Data Preprocessing
-Preprocessing is crucial to prepare the data for machine learning. Key steps include:
+The dataset used for this project is the **Credit Card Fraud Detection** dataset from Kaggle. It contains transactions made by European cardholders in September 2013.
 
-Handling any missing values or inconsistencies in the dataset.
-Scaling or normalizing the features, especially for algorithms like Logistic Regression or Support Vector Machine (SVM).
-Encoding categorical variables, if any, and ensuring the dataset is in a format that can be fed into the machine learning models.
-4. Resampling Data
-Fraud detection typically deals with imbalanced datasets, where fraudulent transactions are much fewer than legitimate ones. Resampling techniques, such as oversampling the minority class (fraudulent transactions) or undersampling the majority class (legitimate transactions), help balance the dataset. Methods like SMOTE (Synthetic Minority Over-sampling Technique) are commonly used to generate synthetic samples for the minority class.
+- **Link to Dataset**: [Credit Card Fraud Detection on Kaggle](https://www.kaggle.com/mlg-ulb/creditcardfraud)
+- The dataset contains 284,807 transactions, of which 492 are fraudulent.
+- Features include anonymized transaction information such as time, amount, and PCA-derived components.
 
-5. Handle Outliers
-Outliers, especially in financial transaction data, can represent fraudulent transactions. Identifying and addressing outliers is important for improving model performance. Depending on the algorithm, certain models can handle outliers naturally, but pre-processing methods can also help manage them.
+## **Project Structure**
 
-6. Build Models
-Multiple models are used to classify transactions as fraudulent or non-fraudulent. Each model has its strengths:
+1. **Read Data**:  
+   Load the credit card transactions dataset and prepare it for exploration and analysis.
 
-Logistic Regression: A linear model, often used as a baseline for classification tasks.
-Support Vector Machine (SVM): Well-suited for high-dimensional data and effective at separating classes.
-Random Forest: An ensemble model that builds multiple decision trees to improve overall accuracy.
-XGBoost: A high-performance boosting algorithm that sequentially improves weak learners.
-7. Logistic Regression
-Logistic Regression is a commonly used algorithm for binary classification problems like fraud detection. It estimates the probability of a transaction being fraudulent based on a linear relationship between the features and the target.
+2. **Explore Data**:  
+   Analyze the dataset to understand its structure, class distribution, and identify any anomalies or patterns.
 
-Accuracy: 0.945946
+3. **Data Preprocessing**:  
+   - Handle missing values and inconsistencies.
+   - Scale the feature values.
+   - Encode categorical variables if necessary.
 
-8. Support Vector Machine
-SVM separates classes by finding the optimal hyperplane that maximizes the margin between the two classes (fraudulent and non-fraudulent transactions). It's effective in cases with high-dimensional data but can be computationally expensive.
+4. **Resampling Data**:  
+   Due to class imbalance, apply techniques like **SMOTE** (Synthetic Minority Over-sampling Technique) to balance the dataset.
 
-Accuracy: 0.940541
+5. **Handle Outliers**:  
+   Detect and address outliers in the data to improve the robustness of the models.
 
-9. Random Forest
-Random Forest is an ensemble of decision trees. It works well for fraud detection due to its ability to handle large datasets and deal with imbalanced data. It is robust against overfitting and generally provides good predictive performance.
+6. **Build Models**:  
+   The following models were built and evaluated for fraud detection:
+   - **Logistic Regression**
+   - **Support Vector Machine (SVM)**
+   - **Random Forest**
+   - **XGBoost**
+   - **Voting Classifier** (ensemble of the above models)
 
-Accuracy: 0.935135
+7. **Fine-Tuning**:  
+   Hyperparameters for each model were fine-tuned to achieve optimal performance.
 
-10. XGBoost
-XGBoost is a gradient boosting algorithm known for its speed and performance, particularly on structured data. It builds a model in a sequential manner, with each new model correcting errors made by the previous models. XGBoost typically outperforms other models on tasks like fraud detection.
+8. **Validation**:  
+   Cross-validation techniques were used to evaluate model performance. Metrics like **Precision**, **Recall**, and **F1 Score** were emphasized due to the imbalanced nature of the dataset.
 
-Accuracy: 0.951351
+## **Results**
 
-11. Fine Tuning
-Fine-tuning involves optimizing the hyperparameters of each model to improve their performance. This could include adjusting the regularization strength in Logistic Regression, the number of trees in Random Forest, or the learning rate in XGBoost. Fine-tuning ensures that each model performs at its best.
+The accuracies of the various models are as follows:
 
-12. Validation
-Validation is used to assess how well the models generalize to unseen data. Cross-validation techniques help ensure that the model is not overfitting to the training data. In fraud detection, additional metrics like Precision, Recall, and F1 Score are important since the dataset is imbalanced. These metrics help ensure that fraudulent transactions are detected without producing too many false positives.
+| **Algorithm**             | **Accuracy**  |
+|---------------------------|---------------|
+| Logistic Regression        | 0.945946      |
+| Support Vector Classifier  | 0.940541      |
+| Random Forest              | 0.935135      |
+| XGBoost Classifier         | 0.951351      |
+| Voting Classifier          | 0.945946      |
 
-13. Voting Classifier
-A voting classifier combines the predictions of multiple models, such as Logistic Regression, SVM, Random Forest, and XGBoost, to make a final prediction. The ensemble approach improves accuracy by leveraging the strengths of different models, thus leading to a more robust classification.
+The **XGBoost Classifier** achieved the highest accuracy at **0.951351**, making it the best-performing model for this task.
 
-Voting Classifier Accuracy: 0.945946
+## **Technologies Used**
+
+- Python (pandas, scikit-learn, XGBoost, etc.)
+- Jupyter Notebook for development and exploration
+
+## **How to Use**
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Sochjvmbcht/credit-card-fraud-detection.git
