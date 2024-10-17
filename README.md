@@ -1,4 +1,4 @@
-Credit Card Fraud Detection| ML
+##Credit Card Fraud Detection
 
 1. Read Data
 In this section, the data is loaded into your environment. It typically consists of transactional records where some transactions are fraudulent. The dataset might include features like time, amount, and anonymized customer behaviors. This step helps in setting up the data for further analysis and modeling.
@@ -10,14 +10,12 @@ Checking for missing values.
 Analyzing the class distribution (e.g., fraudulent vs. non-fraudulent transactions).
 Reviewing summary statistics like the mean, standard deviation, and correlation between variables.
 Visualizing the data to detect any patterns or anomalies that could inform your modeling decisions.
-
 3. Data Preprocessing
 Preprocessing is crucial to prepare the data for machine learning. Key steps include:
 
 Handling any missing values or inconsistencies in the dataset.
 Scaling or normalizing the features, especially for algorithms like Logistic Regression or Support Vector Machine (SVM).
 Encoding categorical variables, if any, and ensuring the dataset is in a format that can be fed into the machine learning models.
-
 4. Resampling Data
 Fraud detection typically deals with imbalanced datasets, where fraudulent transactions are much fewer than legitimate ones. Resampling techniques, such as oversampling the minority class (fraudulent transactions) or undersampling the majority class (legitimate transactions), help balance the dataset. Methods like SMOTE (Synthetic Minority Over-sampling Technique) are commonly used to generate synthetic samples for the minority class.
 
@@ -29,9 +27,8 @@ Multiple models are used to classify transactions as fraudulent or non-fraudulen
 
 Logistic Regression: A linear model, often used as a baseline for classification tasks.
 Support Vector Machine (SVM): Well-suited for high-dimensional data and effective at separating classes.
-Random Forest: An ensemble model that builds multiple decision trees to improve the overall accuracy.
+Random Forest: An ensemble model that builds multiple decision trees to improve overall accuracy.
 XGBoost: A high-performance boosting algorithm that sequentially improves weak learners.
-
 7. Logistic Regression
 Logistic Regression is a commonly used algorithm for binary classification problems like fraud detection. It estimates the probability of a transaction being fraudulent based on a linear relationship between the features and the target.
 
