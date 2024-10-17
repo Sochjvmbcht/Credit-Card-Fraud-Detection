@@ -62,8 +62,3 @@ The **XGBoost Classifier** achieved the highest accuracy at **0.951351**, making
 - Python (pandas, scikit-learn, XGBoost, etc.)
 - Jupyter Notebook for development and exploration
 
-## **How to Use**
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Sochjvmbcht/credit-card-fraud-detection.git
